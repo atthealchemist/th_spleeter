@@ -13,7 +13,7 @@ Spleeter = {
     mediaItems = {},
     output_path = "output",
     options = {place_items_mode = ""},
-    mapping = {place_items = {["AS_TAKES"] = 3, ["AS_NEW_TRACKS"] = 1 + 128}}
+    mapping = {place_items = {["AS_TAKES"] = {3}, ["AS_NEW_TRACKS"] = {1, 128}}}
 }
 
 function Spleeter:new(stems, sample_rate, mediaItems, options)
@@ -69,7 +69,7 @@ function Spleeter:process()
 
     for _, val in ipairs(self.mediaItems) do
         local filepath, mi = val[1], val[2]
-        local filename = Utils.GetFileNameWithoutExtension(filepath)
+        local filename = Utils.strings.GetFileNameWithoutExtension(filepath)
         local command = spleeter_cmd .. " " .. "\"" .. filepath .. "\""
         reaper.ShowConsoleMsg("Command to process: " .. command .. "\n")
         local err, result = Shell.execute(command)

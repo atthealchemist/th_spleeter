@@ -157,8 +157,9 @@ function Gui._log_options()
                             "radio_group_place_items_key")])
 
     options = "\n" .. options ..
-                  Utils.StringifyTable(
-                      Store.get("check_group_place_variants_key"), ", ") .. "\n"
+                  Utils.tables
+                      .Stringify(Store.get("check_group_place_variants_key"),
+                                 ", ") .. "\n"
     -- for k, v in pairs(Store.get("check_group_place_variants_key")) do
     --     options = options .. string.format("%s: %s, ", k, v)
     -- end

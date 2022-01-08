@@ -4,6 +4,8 @@ local reaper = reaper
 local path = ({reaper.get_action_context()})[2]:match('^.+[\\//]')
 package.path = string.format('%s?.lua;%s?/init.lua', path, path)
 
+local Utils = require("utils")
+
 ReaperAPI = {project = 0}
 
 function ReaperAPI.get_selected_media_items()
