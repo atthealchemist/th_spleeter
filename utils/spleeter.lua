@@ -96,8 +96,8 @@ function Spleeter:process()
                                                       filename,
                                                       variant .. ".wav")
                     -- reaper.ShowConsoleMsg("New FP: " .. newFilePath .. "\n")
-                    ReaperAPI.replace_media_item(mi, newFilePath,
-                                                 self.options.place_items_mode)
+                    ReaperAPI._insert_media(newFilePath,
+                                            self.options.place_items_mode)
                 end
             end
         end

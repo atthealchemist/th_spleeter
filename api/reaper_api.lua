@@ -31,6 +31,11 @@ function ReaperAPI.get_start_and_end_of_media_item(item)
     return start, _end
 end
 
+function ReaperAPI._insert_media(item_file, modes)
+    local mode = Utils.tables.Sum(modes)
+    reaper.InsertMedia(item_file, mode)
+end
+
 function ReaperAPI.replace_media_item(item_to_replace, new_item_file, mode)
     local start, _end = ReaperAPI.get_start_and_end_of_media_item(
                             item_to_replace)
