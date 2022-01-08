@@ -57,7 +57,7 @@ Gui = {
 
 function Gui._init()
     local font_size = reaper.GetAppVersion():match('OSX') and 12 or 14
-    Font = reaper.ImGui_CreateFont('Arial Unicode', font_size)
+    Font = reaper.ImGui_CreateFont('Roboto', font_size)
     reaper.ImGui_AttachFont(Context, Font)
 
 end
@@ -171,7 +171,7 @@ function Gui._loop()
     Store.set("selected_items_count", #(SelectedItems))
 
     local window_flags = reaper.ImGui_WindowFlags_None()
-    reaper.ImGui_SetNextWindowSize(Context, 400, 400, reaper.ImGui_Cond_Once())
+    reaper.ImGui_SetNextWindowSize(Context, 540, 450, reaper.ImGui_Cond_Once())
     reaper.ImGui_PushFont(Context, Font)
 
     local visible, open = reaper.ImGui_Begin(Context, 'spleeter', true,
